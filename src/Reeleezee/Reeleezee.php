@@ -7,7 +7,7 @@
 namespace Reeleezee;
 
 
-class APIRequest
+class Reeleezee
 {
     /**
      * @var array
@@ -23,20 +23,43 @@ class APIRequest
      * @var
      */
     public $response;
+    /**
+     * @var
+     */
+    public $url;
+    /**
+     * @var
+     */
+    public $username;
+    /**
+     * @var
+     */
+    public $password;
+
+    /**
+     * Reeleezee constructor.
+     *
+     * @param string $username
+     * @param string $password
+     */
+    public function __construct($url, $username, $password)
+    {
+        $this->url = $url;
+        $this->username = $username;
+        $this->password = $password;
+    }
 
     /**
      * APIRequest constructor.
      *
      * @param string $url
-     * @param string $username
-     * @param string $password
      * @param string $method
      * @param array  $data
      */
-    public function __construct($url, $username, $password, $method = "GET", $data = [])
+    public function request($request, $method = "GET", $data = [])
     {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_USERPWD, $username . ':' . $password);
+        $ch = curl_init($this->url . $request);
+        curl_setopt($ch, CURLOPT_USERPWD, $this->username . ':' . $this->password);
         if ($method == 'POST') {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -61,7 +84,7 @@ class APIRequest
             $response = json_decode($content, true);
 
             if(isset($response['value'])) {
-                $this->response = $response['value'];
+                return $response['value'];
             }
         }
         catch(APIException $e) {
