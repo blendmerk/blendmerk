@@ -12,7 +12,7 @@
   ],
   "autoload": {
     "psr-0": {
-      "reeleezee\\": "src"
+      "Reeleezee\\": "src"
     }
   },
   "require": {
