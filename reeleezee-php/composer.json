@@ -1,0 +1,21 @@
+{
+  "name": "blendmerk/reeleezee",
+  "description": "Reeleezee API.",
+  "authors": [
+    {
+      "name": "Wietse van Ginkel"
+    },
+    {
+      "name": "Wietse van Ginkel",
+      "email": "wietse@blendmerk.nl"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "FtpPhp\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.6"
+  }
+}
