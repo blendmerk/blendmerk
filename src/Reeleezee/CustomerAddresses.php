@@ -13,7 +13,7 @@ namespace Reeleezee;
  *
  * @package Reeleezee
  */
-class ReeleezeeCustomerAddresses
+class CustomerAddresses
 {
     /**
      * @var \Reeleezee\Reeleezee
