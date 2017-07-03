@@ -35,4 +35,12 @@ class Customer
     {
         return $this->reeleezee->request('customers', $this->reeleezee->username, $this->reeleezee->password);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomer($id)
+    {
+        return $this->reeleezee->request('customers/' . $id, $this->reeleezee->username, $this->reeleezee->password);
+    }
 }
